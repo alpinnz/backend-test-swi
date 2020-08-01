@@ -4,7 +4,7 @@ const base64 = require("base-64");
 const router = express.Router();
 
 /* GET home page. */
-router.post("200/charge", (req, res) => {
+router.post("/200/charge", (req, res) => {
   console.log(process.env.sandbox);
   console.log(req.body);
   request.post(
