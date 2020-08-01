@@ -23,13 +23,12 @@ router.post("/charge", (req, res) => {
         console.log(err);
       } else {
         console.log(body);
-        console.log(result);
         let result = {
           token: body.token,
           redirect_url: `https://pacific-reaches-42192.herokuapp.com/${body.token}`
           // redirect_url: `http://localhost:4000/vtweb/${body.token}`
         }
-
+        console.log(result);
         res.status(200).send(result);
       }
     }
