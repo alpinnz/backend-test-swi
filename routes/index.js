@@ -33,4 +33,9 @@ router.get("/", (req, res) => {
   res.send('index');
 });
 
+router.get("/vtweb/:token", (req, res) => {
+  var token = req.params.token;
+  res.send(`index ${token}`);
+});
+
 module.exports = router;
