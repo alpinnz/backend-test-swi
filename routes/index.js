@@ -5,6 +5,8 @@ const router = express.Router();
 
 /* GET home page. */
 router.post("/charge", (req, res) => {
+  console.log(process.env.sandbox);
+  console.log(req.body);
   request.post(
     {
       method: "POST",
@@ -23,13 +25,13 @@ router.post("/charge", (req, res) => {
         console.log(err);
       } else {
         console.log(body);
-        let result = {
-          token: body.token,
-          redirect_url: `https://pacific-reaches-42192.herokuapp.com/${body.token}`
-          // redirect_url: `http://localhost:4000/vtweb/${body.token}`
-        }
-        console.log(result);
-        res.status(200).send(result);
+        // let result = {
+        //   token: body.token,
+        //   redirect_url: `https://pacific-reaches-42192.herokuapp.com/${body.token}`
+        //   // redirect_url: `http://localhost:4000/vtweb/${body.token}`
+        // }
+        // console.log(result);
+        res.status(200).send(body);
       }
     }
   );
