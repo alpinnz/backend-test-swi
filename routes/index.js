@@ -22,8 +22,8 @@ router.post("/charge", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-
         console.log(body);
+        console.log(result);
         let result = {
           token: body.token,
           redirect_url: `https://pacific-reaches-42192.herokuapp.com/${body.token}`
