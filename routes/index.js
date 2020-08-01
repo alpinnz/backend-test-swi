@@ -22,8 +22,15 @@ router.post("/charge", (req, res) => {
       if (err) {
         console.log(err);
       } else {
+
         console.log(body);
-        res.status(200).send(body);
+        let result = {
+          token: body.token,
+          // redirect_url: `https://pacific-reaches-42192.herokuapp.com/${body.token}`
+          redirect_url: `http://localhost:4000/vtweb/${body.token}`
+        }
+
+        res.status(200).send(result);
       }
     }
   );
@@ -34,8 +41,13 @@ router.get("/", (req, res) => {
 });
 
 router.get("/vtweb/:token", (req, res) => {
+  let result = {
+    body: req.body,
+    params: req.params
+  };
+  console.log(result);
   var token = req.params.token;
-  res.send(`index ${token}`);
+  res.send(result);
 });
 
 module.exports = router;
